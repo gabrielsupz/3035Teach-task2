@@ -3,6 +3,8 @@ export const StyledTable = styled.div`
   width: 500px;
   display: flex;
   flex-direction: column;
+
+  align-items: center;
   margin-bottom: 50px;
   div {
     display: flex;

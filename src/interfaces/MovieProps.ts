@@ -1,3 +1,5 @@
+import { TaskProps } from '../components/Table'
+
 export interface MovieProps {
   id: string
   name: string

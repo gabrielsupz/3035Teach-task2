@@ -1,8 +1,8 @@
-# As tarefas 2 e 3 do curso 3035teach realziadas
+# As tarefas 2 e 3 do curso 3035teach realizadas
 
 ## Informações
 
-Duas tabelas, com a função de pesquisa e uma com um checkbox para selecionar filmes,conta com um alert informando o nome do filme selecionado
+Duas tabelas, com a função de pesquisa e uma com um checkbox para selecionar filmes,conta com um alert informando o nome do filme selecionado, além disso os componentes foram feitos para poderem atender tanto ao modelo com checkbox quanto ao sem checkbox
 
 ## Available Scripts
 

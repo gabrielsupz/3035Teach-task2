@@ -51,7 +51,7 @@ export function Table({ task }: TaskProps) {
   if (task == 'secondTask') {
     return (
       <S.StyledTable>
-        <h2>Tarefa 2</h2>
+        <h2>Tarefa 3</h2>
         <div>
           <h2>Filmes</h2>
           <S.SeachBox>
@@ -162,7 +162,7 @@ export function Table({ task }: TaskProps) {
   }
   return (
     <S.StyledTable>
-      <h2>Tarefa 1</h2>
+      <h2>Tarefa 2</h2>
       <div>
         <h2>Filmes</h2>
         <S.SeachBox>

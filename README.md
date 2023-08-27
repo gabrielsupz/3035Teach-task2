@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# As tarefas 2 e 3 do curso 3035teach realziadas
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Informações
+
+Duas tabelas, com a função de pesquisa e uma com um checkbox para selecionar filmes,conta com um alert informando o nome do filme selecionado
 
 ## Available Scripts
 

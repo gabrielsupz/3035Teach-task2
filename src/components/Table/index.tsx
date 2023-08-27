@@ -47,7 +47,7 @@ export function Table({ task }: TaskProps) {
       setMoviesShown(movies)
     }
   }
-  //Apesar de eu colocar como sendo a primeira e segunda tarefa elas são a segunda e terceira tarefa do módulo :)
+
   if (task == 'secondTask') {
     return (
       <S.StyledTable>

@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react'
-import { FilmProps } from '../../interfaces/FilmProps'
+import { MovieProps } from '../../interfaces/MovieProps'
 import { TableRow } from '../TableRow'
 import * as S from './style'
 
 export function Table() {
-  const [films, setFilms] = useState([{} as FilmProps])
+  const [movies, setMovies] = useState([{} as MovieProps])
+  const [moviesShown, setMoviesShown] = useState([{} as MovieProps])
+
+  const [search, setSearch] = useState<string>('')
 
   useEffect(() => {
     fetch('./filmes.json', {
@@ -14,10 +17,32 @@ export function Table() {
     })
       .then(res => res.json())
       .then(json => {
-        setFilms(json)
-        films.forEach(e => console.log(e))
+        setMovies(json)
+        setMoviesShown(json)
       })
-  }, [setFilms])
+  }, [setMovies])
+
+  function getInputSearch(event: React.ChangeEvent<HTMLInputElement>) {
+    const value = event.target.value
+    setSearch(value)
+    getSearchedMovies(value)
+  }
+
+  function getSearchedMovies(search: string) {
+    // Se tiver algo pesquisado então selecione os filmes que contenham o valor da pesquisa
+    if (search) {
+      //Filtre os filmes , os que passarem (true) entrarão no novo array
+      const moviesSearched: MovieProps[] = movies.filter(m =>
+        // O nome em lowercase possui a pesquisa?
+        //Se sim, retorne true e add ao array
+        m.name.toLowerCase().includes(search.toLowerCase())
+      )
+      setMoviesShown(moviesSearched)
+    } else {
+      //Sem pesquisa? Apresente todos os filmes
+      setMoviesShown(movies)
+    }
+  }
 
   return (
     <S.StyledTable>
@@ -29,6 +54,8 @@ export function Table() {
             type="text"
             name=""
             placeholder="Procurar filme"
+            value={search}
+            onChange={getInputSearch}
           />
           <button className="searchButton">
             <svg
@@ -106,19 +133,19 @@ export function Table() {
         <thead>
           <tr>
             <th>Id</th>
-            <th>Genero</th>
+            <th>Gênero</th>
             <th>Nome</th>
             <th>Imagem</th>
           </tr>
         </thead>
         <tbody>
-          {films.map(film => (
+          {moviesShown.map(m => (
             <TableRow
-              key={film.id}
-              id={film.id}
-              name={film.name}
-              genre={film.genre}
-              imgLink={film.imgLink}
+              key={m.id}
+              id={m.id}
+              name={m.name}
+              genre={m.genre}
+              imgLink={m.imgLink}
             />
           ))}
         </tbody>

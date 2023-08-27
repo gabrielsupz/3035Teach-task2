@@ -1,6 +1,6 @@
-import { FilmProps } from '../../interfaces/FilmProps'
+import { MovieProps } from '../../interfaces/MovieProps'
 
-export function TableRow({ id, genre, name, imgLink }: FilmProps) {
+export function TableRow({ id, genre, name, imgLink }: MovieProps) {
   return (
     <tr>
       <td>{id}</td>
